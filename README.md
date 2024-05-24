@@ -5,7 +5,7 @@ Documentation on how to create a custom directory for Opensense to ingest.
 Each request should return a JSON response with the following structure:
 ```
 {
-  data: [ ... ], // Array of objects
+  data: [ ... ], // Array of objects with custom fields
   links: {
     next: '/path/to/next/page'
 }
@@ -13,8 +13,15 @@ Each request should return a JSON response with the following structure:
 Opensense will pass an `Authorization` header with a token to authenticate. eg, `Authorization: Bearer <token>`
 We will also pass a `pageSize` parameter on the URL.
 
+### Email attribute required
+Each data object must have an `email` attribute.
+
+### Field names
+Each data object can have data fields.  The data field names must be lowercase characters and underscores only.  eg: `title`, `linkedin_url`.
+
 ### Timeouts
 Each request should take no more than 30 seconds.  The maximum page size should be 1000 users.
+
 
 # Example of paginated results
 GET /users?pageSize=100

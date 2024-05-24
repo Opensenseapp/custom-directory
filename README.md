@@ -1,5 +1,5 @@
-# custom-directory
-Documentation on how to create a custom directory for Opensense to ingest.
+# Opensense Custom Directory
+Documentation on how to create a custom directory for Opensense to ingest.  
 
 # Notes:
 Each request should return a JSON response with the following structure:
@@ -10,8 +10,11 @@ Each request should return a JSON response with the following structure:
     next: '/path/to/next/page'
 }
 ```
-Opensense will pass an Authorization header with a token to authenticate.
-We will also pass a `pageSize` parameter.
+Opensense will pass an `Authorization` header with a token to authenticate. eg, `Authorization: Bearer <token>`
+We will also pass a `pageSize` parameter on the URL.
+
+### Timeouts
+Each request should take no more than 30 seconds.  The maximum page size should be 1000 users.
 
 # Example of paginated results
 GET /users?pageSize=100

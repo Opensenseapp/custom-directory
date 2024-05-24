@@ -24,9 +24,10 @@ Each request should take no more than 30 seconds.  The maximum page size should 
 
 
 # Example of paginated results
+### REQUEST FIRST PAGE
 GET /users?pageSize=100
 
-RESPONSE 1:
+#### RESPONSE FIRST PAGE:
 ```
 {
   data: [ 
@@ -47,9 +48,10 @@ RESPONSE 1:
 }
 ```
 
-
+### REQUEST SECOND PAGE
 GET /users?skip=100&limit=100
-RESPONSE 2:
+
+#### RESPONSE SECOND PAGE:
 
 ```
 {
@@ -70,9 +72,9 @@ RESPONSE 2:
 }
 ```
 
-
+### REQUEST LAST PAGE
 GET /users?skip=200&limit=100
-RESPONSE 3:
+#### RESPONSE LAST PAGE:
 ```
 {
   data: [ 

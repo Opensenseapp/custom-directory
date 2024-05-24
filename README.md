@@ -22,10 +22,12 @@ Each data object can have data fields.  The data field names must be lowercase c
 ### Timeouts
 Each request should take no more than 30 seconds.  The maximum page size should be 1000 users.
 
+### HTTPS required 
+Your custom directory endpoint must have a valid TLS/SSL certificate
 
 # Example of paginated results
 ### REQUEST FIRST PAGE
-GET /users?pageSize=100
+GET https://customdir.customer.com/users?pageSize=100
 
 #### RESPONSE FIRST PAGE:
 ```
@@ -43,13 +45,13 @@ GET /users?pageSize=100
     ... 100 
   ],
   links: {
-    next:  '/users?skip=100&limit=100'
+    next:  'https://customdir.customer.com/users?skip=100&limit=100'
   }
 }
 ```
 
 ### REQUEST SECOND PAGE
-GET /users?skip=100&limit=100
+GET https://customdir.customer.com/users?skip=100&limit=100
 
 #### RESPONSE SECOND PAGE:
 
@@ -67,13 +69,13 @@ GET /users?skip=100&limit=100
     ... 100 
   ],
   links: {
-    next:  '/users?skip=200&limit=100'
+    next:  'https://customdir.customer.com/users?skip=200&limit=100'
   }
 }
 ```
 
 ### REQUEST LAST PAGE
-GET /users?skip=200&limit=100
+GET https://customdir.customer.com/users?skip=200&limit=100
 #### RESPONSE LAST PAGE:
 ```
 {
